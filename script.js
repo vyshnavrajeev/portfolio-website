@@ -77,20 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
 
     // 4. Contact Form Submission (Prevent Default for UI Demo)
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
-            btn.style.background = 'var(--accent-teal)';
-            contactForm.reset();
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-            }, 3000);
-        });
-    }
+const contactForm = document.querySelector('.contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+        const btn = contactForm.querySelector('button[type="submit"]');
+
+        btn.innerHTML = 'Sending... <i class="fas fa-paper-plane"></i>';
+    });
+}
 });
